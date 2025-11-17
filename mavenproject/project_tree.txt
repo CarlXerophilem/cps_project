@@ -1,0 +1,22 @@
+src/main/java/
+    app/Main.java
+    controller/
+        BookingFormController.java
+        FlightSelectorController.java
+    model/
+        Flight.java
+        DirectFlight.java
+        Passenger.java
+        Booking.java
+        Database.java
+    service/
+        FlightAPIService.java
+src/main/resources/
+    fxml/
+        BookingForm.fxml
+        FlightSelector.fxml
+    images/
+        plane_icon.png
+    xml/
+        booking_template.xml
+pom.xml
