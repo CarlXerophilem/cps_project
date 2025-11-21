@@ -1,9 +1,0 @@
-<TableView fx:id="flightTable">
-    <columns>
-        <TableColumn text="Flight No" fx:id="flightNoCol"/>
-        <TableColumn text="Origin" fx:id="originCol"/>
-        <TableColumn text="Destination" fx:id="destCol"/>
-    </columns>
-</TableView>
-
-<Button text="确认预订" onAction="#confirmBooking"/>
