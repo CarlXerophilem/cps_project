@@ -1,0 +1,8 @@
+bookings1 booked Domestic Flight  (ANA):  → 
+1 booked Domestic Flight w (ANA): s → 
+y booked Domestic Flight w (ANA): s → 
+y booked International Flight w (Visa: Required): s → 
+y booked International Flight w (Visa: Required): s → 
+y booked International Flight w (Visa: Required): s → 
+f booked International Flight  (Visa: Required):  → 
+f booked International Flight  (Visa: Required):  → 
