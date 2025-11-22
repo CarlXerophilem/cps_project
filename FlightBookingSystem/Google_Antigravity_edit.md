@@ -25,7 +25,7 @@ private static final String DB_PASSWORD = "0000";
 ## Build & Run
 ```powershell
 # Navigate to project directory
-cd c:\Users\Administrator\Desktop\mathss\script\cps_2231\cps_project\FlightBookingSystem
+cd <path-to-FlightBookingSystem>
 
 # Compile
 mvn clean compile
@@ -53,3 +53,4 @@ mvn javafx:run
 - **ClassPath issues**: Try `mvn clean` then `mvn compile` again
 
 Enjoy your enhanced flight booking system! 🚀
+
