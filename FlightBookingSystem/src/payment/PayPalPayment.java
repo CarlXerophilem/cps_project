@@ -1,8 +1,8 @@
 package payment;
 
-public class PayPalPayment implements Payment {
+public class PayPalPayment extends Payment {
     @Override
-    public void processPayment(double amount) {
-        System.out.println("Payment of $" + amount + " made via PayPal.");
+    public void processPayment(String flightNum) {
+        System.out.println("Payment of $" + importPrice(flightNum) + "should be made with PayPal.");
     }
 }

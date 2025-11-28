@@ -1,5 +1,9 @@
 package model;
 
+import payment.CreditCardPayment;
+import payment.Payment;
+
+import javax.lang.model.util.Elements;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +15,9 @@ import java.util.List;
  * operations.
  */
 public class DatabaseManager {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/flight_booking";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/test";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "0000"; // Update with your MySQL password
+    private String DB_PASSWORD = "54711425xyz";
 
     private Connection connection;
 
@@ -30,44 +34,58 @@ public class DatabaseManager {
             System.out.println("✓ Connected to database successfully");
 
             // Create tables if they don't exist
-            createTablesIfNotExist();
+            createTablePersonal();
+            createTableFlightInfo();
 
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e1) {
             System.err.println("✗ MySQL JDBC Driver not found!");
-            e.printStackTrace();
-        } catch (SQLException es) {
+            e1.printStackTrace();
+        } catch (SQLException e2) {
             System.err.println("✗ Database connection failed!");
             System.err.println("Make sure MySQL is running and the 'flight_booking' database exists.");
             System.err.println("You can create it with: CREATE DATABASE flight_booking;");
-            es.printStackTrace();
+            e2.printStackTrace();
         }
     }
 
     /**
-     * Creates database tables if they don't already exist
+     * Creates database tables (PersonalInfo+FlightInfo) if they don't already exist
      */
-    private void createTablesIfNotExist() {
-        String createTableSQL = "CREATE TABLE IF NOT EXISTS bookings (" +
-                "  id INT AUTO_INCREMENT PRIMARY KEY," +
-                "  passenger_name VARCHAR(255) NOT NULL," +
-                "  passport_number VARCHAR(50) NOT NULL," +
-                "  flight_number VARCHAR(20) NOT NULL," +
-                "  origin VARCHAR(100) NOT NULL," +
-                "  destination VARCHAR(100) NOT NULL," +
-                "  departure_date DATE NOT NULL," +
-                "  flight_type VARCHAR(50) NOT NULL," +
-                "  payment_method VARCHAR(50) NOT NULL," +
-                "  booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+    private void createTablePersonal() {
+        String createTablePersonalSQL = "CREATE TABLE IF NOT EXISTS Personal_Information (" +
+                " Register_id INT AUTO_INCREMENT PRIMARY KEY, " +
+                " Passenger_name VARCHAR(255) NOT NULL, " +
+                " Passport_number VARCHAR(50) NOT NULL, " +
+                " Phone_number VARCHAR(50) " +
                 ")";
 
         try (Statement stmt = connection.createStatement()) {
-            stmt.executeUpdate(createTableSQL);
-            System.out.println("✓ Database tables ready");
+            stmt.executeUpdate(createTablePersonalSQL);
+            System.out.println("Database table(Personal) ready");
         } catch (SQLException e) {
-            System.err.println("✗ Failed to create tables");
+            System.err.println("Failed to create table(Personal)");
             e.printStackTrace();
         }
     }
+
+    private void createTableFlightInfo() {
+        String createTableFlightSQL = "CREATE TABLE IF NOT EXISTS Flight_Information (" +
+                " Flight_number VARCHAR(50) PRIMARY KEY, " +
+                " Departure VARCHAR(255) NOT NULL, " +
+                " Arrival VARCHAR(50) NOT NULL, " +
+                " Departure_time VARCHAR(50) " +
+                " Arrival_time VARCHAR(50) " +
+                ")";
+
+        try (Statement stmt = connection.createStatement()) {
+            stmt.executeUpdate(createTableFlightSQL);
+            System.out.println("Database tables(FlightInfo) ready");
+        } catch (SQLException e) {
+            System.err.println("Failed to create table(FlightInfo)");
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * Insert a new booking into the database
@@ -76,25 +94,39 @@ public class DatabaseManager {
      * @return true if insertion was successful, false otherwise
      */
     public boolean insertBooking(Booking booking) {
-        String insertSQL = "INSERT INTO bookings (passenger_name, passport_number, flight_number, " +
-                "origin, destination, departure_date, flight_type, payment_method) " +
+        String insertSQLpersonal = "INSERT INTO Personal_Information (Passenger_name, Passport_number, Phone_number) " +
+                "VALUES (?, ?, ?)";
+
+        String insertSQLflight = "INSERT INTO Flight_Information (Flight_number, Flight_type, origin, destination, " +
+                "Departure_date, Departure_time, Arrival_time, price) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstmt = connection.prepareStatement(insertSQL)) {
+        try (PreparedStatement pstmt1 = connection.prepareStatement(insertSQLpersonal);
+                PreparedStatement pstmt2 = connection.prepareStatement(insertSQLflight)) {
             Flight flight = booking.getFlight();
             Passenger passenger = booking.getPassenger();
 
-            pstmt.setString(1, passenger.getName());
-            pstmt.setString(2, passenger.getPassportNumber());
-            pstmt.setString(3, flight.getFlightNumber());
-            pstmt.setString(4, flight.getOrigin());
-            pstmt.setString(5, flight.getDestination());
-            pstmt.setDate(6, Date.valueOf(flight.getDepartureDate()));
-            pstmt.setString(7, flight instanceof DomesticFlight ? "Domestic" : "International");
-            pstmt.setString(8, booking.getPaymentMethod());
+            //personalInfo Table
+            pstmt1.setString(1, passenger.getName());
+            pstmt1.setString(2, passenger.getPassportNumber());
+            pstmt1.setString(3, passenger.getPhoneNumber());
 
-            int rowsAffected = pstmt.executeUpdate();
-            return rowsAffected > 0;
+            //flightInfo Table
+            pstmt2.setString(1, flight.getFlightNumber());
+            pstmt2.setString(2, flight instanceof DomesticFlight ? "Domestic" : "International");
+            pstmt2.setString(3, flight.getOrigin());
+            pstmt2.setString(4, flight.getDestination());
+            pstmt2.setDate(5, Date.valueOf(flight.getDepartureDate()));
+
+            //!!!Missing: departure_time, arrival_time
+            //Departure time?
+            //Arrival time?
+            pstmt2.setDouble(8, new CreditCardPayment().importPrice(flight.getFlightNumber()));
+
+            int rowsAffected1 = pstmt1.executeUpdate();
+            int rowsAffected2 = pstmt2.executeUpdate();
+
+            return rowsAffected1 > 0 && rowsAffected2 > 0;
 
         } catch (SQLException e) {
             System.err.println("✗ Failed to insert booking");
@@ -137,6 +169,38 @@ public class DatabaseManager {
 
         return bookings;
     }
+
+    // Flight Info Database
+    public double passPrice(String flightNum){
+        double price = 0; //default value
+
+        String fetchPrice = "SELECT price FROM Flight_Information WHERE Flight_number = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(fetchPrice)){
+            pstmt.setString(1,flightNum);
+            ResultSet fetchResult = pstmt.executeQuery();
+
+            if(fetchResult.next()){
+                price = fetchResult.getDouble("price");
+            };
+
+            fetchResult.close();
+
+        }catch (SQLException eSQL){
+            System.out.println("Price of flight not found...");
+        }finally {
+            return price;
+        }
+
+
+    }
+
+
+
+
+
+
+
 
     /**
      * Closes the database connection
