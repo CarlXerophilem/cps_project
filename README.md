@@ -1,12 +1,39 @@
 ## private cps_project
 wku cps 2231 final project - simple_flight_booking_system.
-Aimed to offer the cheapest ticket price by comparing different global-airline prices (dynamic).
+Aimed to offer the cheapest ticket price by comparing amongst different global-airline prices (dynamic) via URL scanning.
 you can review the class-method tree in tree.md
 
-## configure this project first if it does not run normally.
-#use path-to-javafx to define.
-/cmd/
- From the project root (where src/ is located). Adjust the JavaFX SDK path if different.
+## configure this project first if it does not run normally, i.e., displaying "module for javafx not found".
+
+# Check your dependencies on Apache Maven and MySQL first. Check path-to-javafx as well. Usually in this format: javafx-sdk-<version>\bin
+
+For windows 11 user, right click on the FlightBookingSystem\, Open terminal within. Try the following code:
+
+```console
+dir
+mvn
+```
+
+You should see bin in the directory. If you cannot execute command "mvn", add <path-to-apache_maven\bin> to your system path in the environment varable settings, as fullfilled as possible. Let your PC remember that. 
+Then run the following command to build the project:
+
+```console
+mvn compile
+mvn clean
+```
+
+If no failure, continue to run:
+
+```console
+mvn javafx:run
+```
+A typical [WARNNING] will be called because of the poor arrangement of java-plugin version. About to be fixed.
+
+
+
+
+# ~~Execute Main.java without maven (depricated).~~
+
 ```console
 mkdir -p out
 ```
