@@ -1,10 +1,12 @@
 package model;
 
 public abstract class Flight {
-    protected String flightNumber;
-    protected String origin;
-    protected String destination;
-    protected String departureDate; // Format: yyyy-MM-dd
+    String flightNumber;
+    String origin;
+    String destination;
+    String departureDate; // Format: yyyy-MM-dd
+
+
 
     public Flight(String flightNumber, String origin, String destination, String departureDate) {
         this.flightNumber = flightNumber;

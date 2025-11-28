@@ -1,5 +1,6 @@
 package model;
 
+import payment.CreditCardPayment;
 import payment.Payment;
 
 public class Booking {
@@ -17,8 +18,8 @@ public class Booking {
         return passenger.getName() + " booked " + flight.getDetails();
     }
 
-    public void confirm(double amount) {
-        payment.processPayment(amount);
+    public void confirm() {
+        payment.processPayment(flight.getFlightNumber());
         System.out.println("Booking confirmed for " + passenger.getName());
     }
 
@@ -32,6 +33,6 @@ public class Booking {
     }
 
     public String getPaymentMethod() {
-        return payment.getClass().getSimpleName().replace("Payment", "");
+        return payment instanceof CreditCardPayment? "Credit Card":"Paypal";
     }
 }

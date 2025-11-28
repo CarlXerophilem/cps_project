@@ -26,6 +26,7 @@ public class PassengerInfoView {
     private TextField nameField;
     private TextField passportField;
     private TextField flightNumberField;
+    private TextField phoneNumberField;
     private ComboBox<String> paymentCombo;
     private Button backButton;
     private Button bookButton;
@@ -245,6 +246,7 @@ public class PassengerInfoView {
     public void processBooking() {
         String name = nameField.getText().trim();
         String passport = passportField.getText().trim();
+        String phone = phoneNumberField.getText().trim();
         String flightNumber = flightNumberField.getText().trim();
         String paymentMethod = paymentCombo.getValue();
 
@@ -256,7 +258,7 @@ public class PassengerInfoView {
 
         try {
             // Create booking objects
-            Passenger passenger = new Passenger(name, passport);
+            Passenger passenger = new Passenger(name, passport, phone);
 
             Flight flight;
             if (searchData.flightType.equals("Domestic")) {
@@ -267,12 +269,10 @@ public class PassengerInfoView {
                         searchData.date, "Required"); // Visa status
             }
 
-            Payment payment = paymentMethod.equals("Credit Card")
-                    ? new CreditCardPayment()
-                    : new PayPalPayment();
+            Payment payment = paymentMethod.equals("Credit Card")? new CreditCardPayment() : new PayPalPayment();
 
             Booking booking = new Booking(flight, passenger, payment);
-            booking.confirm(200.0); // Process payment
+            booking.confirm(); // Process payment
             bookingManager.addBooking(booking);
 
             // Generate airline URLs

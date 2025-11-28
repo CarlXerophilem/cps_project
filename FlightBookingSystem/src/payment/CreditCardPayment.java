@@ -1,17 +1,9 @@
 package payment;
 
-public class CreditCardPayment implements Payment {
+public class CreditCardPayment extends Payment {
+    //print price, specify chosen payment approach
     @Override
-    public void processPayment(double amount) {
-        System.out.println("Payment of $" + amount + " made using Credit Card.");
-    }
-
-    public CreditCardPayment() {
-        // Display info in scene.
-        
-    }
-
-    public CreditCardPayment(String property) {
-        // Initialize credit card details
+    public void processPayment(String flightNum) {
+        System.out.println("Payment of $" + importPrice(flightNum) + "should be made with Credit Card.");
     }
 }
