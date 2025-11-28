@@ -1,5 +1,7 @@
 ## private cps_project
 wku cps 2231 final project - simple_flight_booking_system.
+Aimed to offer the cheapest ticket price by comparing different global-airline prices (dynamic).
+you can review the class-method tree in tree.md
 
 ## configure this project first if it does not run normally.
 #use path-to-javafx to define.
