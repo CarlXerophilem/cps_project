@@ -1,0 +1,34 @@
+package model;
+
+public abstract class Flight {
+    String flightNumber;
+    String origin;
+    String destination;
+    String departureDate; // Format: yyyy-MM-dd
+
+    public Flight(String flightNumber, String origin, String destination, String departureDate) {
+        this.flightNumber = flightNumber;
+        this.origin = origin;
+        this.destination = destination;
+        this.departureDate = departureDate;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureDate() {
+        return departureDate;
+    }
+
+    public abstract String getDetails(); // invoked by DomesticFlight and InternationalFlight
+
+}
