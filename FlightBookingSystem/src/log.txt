@@ -1,0 +1,168 @@
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+        at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:175)
+        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+        at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+        at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+        at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+        at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+        at model.DatabaseManager.<init>(DatabaseManager.java:33)
+        at model.BookingManager.<init>(BookingManager.java:15)
+        at app.Main.start(Main.java:21)
+        at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839)
+        at javafx.graphics@21.0.2/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483)
+        at javafx.graphics@21.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456)
+        at java.base/java.security.AccessController.doPrivileged(AccessController.java:138)
+        at javafx.graphics@21.0.2/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455)
+        at javafx.graphics@21.0.2/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+        at javafx.graphics@21.0.2/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+        at javafx.graphics@21.0.2/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:185)
+        at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+        at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+        at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+        at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+        at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:62)
+        at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+        at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:150)
+        at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:166)
+        at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
+        at com.mysql.cj.NativeSession.connect(NativeSession.java:121)
+        at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:945)
+        at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+        ... 17 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+        at java.base/sun.nio.ch.Net.connect0(Native Method)
+        at java.base/sun.nio.ch.Net.connect(Net.java:546)
+        at java.base/sun.nio.ch.Net.connect(Net.java:535)
+        at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:585)
+        at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284)
+        at java.base/java.net.Socket.connect(Socket.java:659)
+        at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+        at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
+        ... 20 more
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::allocateMemory has been called by com.sun.marlin.OffHeapArray (file:/C:/Users/Administrator/.m2/repository/org/openjfx/javafx-graphics/21.0.2/javafx-graphics-21.0.2-win.jar)
+WARNING: Please consider reporting this to the maintainers of class com.sun.marlin.OffHeapArray
+WARNING: sun.misc.Unsafe::allocateMemory will be removed in a future release
+Searching URL: https://flights.ctrip.com/online/list/oneway-wnz-wnz?depdate=2025-12-07&cabin=y&adult=1&child=0&infant=0
+com.microsoft.playwright.PlaywrightException: Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\stackTrace.js:50:17)
+    at LongStandingScope._race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:362:39)
+}
+Call log:
+- waiting for locator(".flight-box") to be visible
+
+        at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+        at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+        at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
+        at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+        at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1060)
+        at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1050)
+        at com.microsoft.playwright.impl.PageImpl.lambda$waitForSelector$92(PageImpl.java:1457)
+        at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+        at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+        at com.microsoft.playwright.impl.PageImpl.waitForSelector(PageImpl.java:1456)
+        at crawler.FlightCrawler.searchFlights(FlightCrawler.java:164)
+        at app.Main$1.call(Main.java:64)
+        at app.Main$1.call(Main.java:61)
+        at javafx.graphics@21.0.2/javafx.concurrent.Task$TaskCallable.call(Task.java:1399)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+        at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\stackTrace.js:50:17)
+    at LongStandingScope._race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:362:39)
+}
+Call log:
+- waiting for locator(".flight-box") to be visible
+
+        at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+        at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
+        at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+        ... 14 more
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::allocateMemory has been called by com.sun.marlin.OffHeapArray (file:/C:/Users/Administrator/.m2/repository/org/openjfx/javafx-graphics/21.0.2/javafx-graphics-21.0.2-win.jar)
+WARNING: Please consider reporting this to the maintainers of class com.sun.marlin.OffHeapArray
+WARNING: sun.misc.Unsafe::allocateMemory will be removed in a future release
+Searching URL: https://flights.ctrip.com/online/list/oneway-wnz-wnz?depdate=2025-12-07&cabin=y&adult=1&child=0&infant=0
+com.microsoft.playwright.PlaywrightException: Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\stackTrace.js:50:17)
+    at LongStandingScope._race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:362:39)
+}
+Call log:
+- waiting for locator(".flight-box") to be visible
+
+        at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+        at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+        at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
+        at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+        at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1060)
+        at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1050)
+        at com.microsoft.playwright.impl.PageImpl.lambda$waitForSelector$92(PageImpl.java:1457)
+        at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+        at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+        at com.microsoft.playwright.impl.PageImpl.waitForSelector(PageImpl.java:1456)
+        at crawler.FlightCrawler.searchFlights(FlightCrawler.java:164)
+        at app.Main$1.call(Main.java:64)
+        at app.Main$1.call(Main.java:61)
+        at javafx.graphics@21.0.2/javafx.concurrent.Task$TaskCallable.call(Task.java:1399)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+        at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\stackTrace.js:50:17)
+    at LongStandingScope._race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\ADMINI~1\AppData\Local\Temp\playwright-java-11697768210462892336\package\lib\server\dispatchers\dispatcher.js:362:39)
+}
+Call log:
+- waiting for locator(".flight-box") to be visible
+
+        at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+        at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
+        at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+        ... 14 more
+Could not resolve city codes for: wenzhou -> chngd
+Searching URL: https://flights.ctrip.com/online/list/oneway-wnz-ctu?depdate=2025-12-04&cabin=y&adult=1&child=0&infant=0
+Found 32 flights.
+Payment of $500.0 made via Credit Card.
+Processing payment of $500.0
+Booking confirmed for 66666
+? Database not connected, booking not saved
+
+=== Application Closing ===
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  41:59 min
+[INFO] Finished at: 2025-11-30T18:23:58+08:00
+[INFO] ------------------------------------------------------------------------
