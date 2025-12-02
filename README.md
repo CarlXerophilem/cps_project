@@ -1,11 +1,11 @@
-## private cps_project Flight Booking System
+# private cps_project Flight Booking System
 wku cps 2231 final project - simple_flight_booking_system.
 Aimed to offer the cheapest ticket price by comparing amongst different global-airline prices (dynamic) via URL scanning.
 you can review the class-method tree in tree.md
 
 ## configure this project first if it does not run normally, i.e., displaying "module for javafx not found".
 
-# Check your dependencies on Apache Maven and MySQL first. Check path-to-javafx as well. Usually in this format: javafx-sdk-<version>\bin
+### Check your dependencies on Apache Maven and MySQL first. Check path-to-javafx as well. Usually in this format: javafx-sdk-<version>\bin
 
 For windows 11 user, right click on the FlightBookingSystem\, Open terminal within. Try the following code:
 
@@ -32,7 +32,7 @@ A typical [WARNNING] will be called because of the poor arrangement of java-plug
 
 
 
-# ~~Execute Main.java without maven (depricated).~~
+### ~~Execute Main.java without maven (depricated).~~
 
 ```console
 mkdir -p out
@@ -67,7 +67,7 @@ WARNING: Restricted methods will be blocked in a future release unless native ac
 JavaFX is loading its native (C++) libraries using System.load(), and since Java 21 tightened security around this, 
 the JVM warns you about it.
 
-## Cited works and documentations
+# Cited works and documentations
 
 ```latex
  \item Abraam318. (2024). \textit{Flight-Reservation}. GitHub repository. \url{https://github.com/Abraam318/Flight-Reservation}
