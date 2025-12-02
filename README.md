@@ -69,17 +69,19 @@ the JVM warns you about it.
 
 # Cited works and documentations
 
-```latex
- \item Abraam318. (2024). \textit{Flight-Reservation}. GitHub repository. \url{https://github.com/Abraam318/Flight-Reservation}
-        \item harismuneer. (2018). \textit{Flight-Booking-System-JavaServlets\_App}. GitHub repository. \url{https://github.com/harismuneer/Flight-Booking-System-JavaServlets-App}
-        \item wzxlll. (2025). \textit{xc\_airplane}. GitHub repository. \url{https://github.com/wzxlll/-/tree/main/xc\_airplane}
+1. Abraam318. (2024). $\textit{Flight-Reservation}$. GitHub repository. [https://github.com/Abraam318/Flight-Reservation]{https://github.com/Abraam318/Flight-Reservation}
+2. harismuneer. (2018). $\textit{Flight-Booking-System-JavaServlets\_App}$. GitHub repository. \url{https://github.com/harismuneer/Flight-Booking-System-JavaServlets-App}
+4. wzxlll. (2025). \textit{xc\_airplane}. GitHub repository. \url{https://github.com/wzxlll/-/tree/main/xc\_airplane}
+3. Oracle. (2023). \textit{JavaFX 8 Documentation}.
 
-        \item Oracle. (2023). \textit{JavaFX 8 Documentation}.
 
-```
+# Suggested Collaborators
 
-# Suggested Collabrators
-Google Antigravity IDE
+[Google Antigravity IDE](https://antigravity.google/)
+
+[Google Gemini 3 pro](https://gemini.google.com/app)
+
+Collaborators shown in this project home page.
 
 
 
